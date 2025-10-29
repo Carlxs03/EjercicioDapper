@@ -69,6 +69,37 @@ namespace SocialMedia.Core.Services
             return posts;
         }
 
+        public async Task<IEnumerable<PostConComentariosMenoresResponse>> GetPostConComentariosMenoresAsync()
+        {
+            var posts = await _unitOfWork.PostRepository.GetPostConComentariosMenoresAsync(); 
+            return posts;
+        }
+
+        public async Task<IEnumerable<UsuarioActivoSinComentariosResponse>> GetUsersSinComentarioAsync()
+        {
+            var posts = await _unitOfWork.PostRepository.GetUsersSinComentariosAsync();
+            return posts;
+        }
+
+        public async Task<IEnumerable<ComentarioRecienteResponse>> GetComentariosMayor25()
+        {
+            var coments = await _unitOfWork.PostRepository.GetComentarioRecientePorMayor25Async();
+            return coments;
+        }
+
+        public async Task<IEnumerable<PostSinComentariosResponse>> GetPostsSinComentarios()
+        {
+            var posts = await _unitOfWork.PostRepository.GetPostsSinComentariosAsync();
+            return posts;
+        }
+
+        public async Task<IEnumerable<UsuarioInteractivoResponse>> GetUsersInterActivos()
+        {
+            var users = await _unitOfWork.PostRepository.GetUsersInterActivosAsync();
+            return users;
+        }
+
+
         public async Task<Post> GetPostAsync(int id)
         {
             //return await _postRepository.GetById(id);
@@ -136,5 +167,7 @@ namespace SocialMedia.Core.Services
 
             return false;
         }
+
+
     }
 }

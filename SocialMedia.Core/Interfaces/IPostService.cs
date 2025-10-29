@@ -14,6 +14,19 @@ namespace SocialMedia.Core.Interfaces
         Task<IEnumerable<Post>> GetAllPostAsync(PostQueryFilter postQueryFilter);
         Task<IEnumerable<Post>> GetAllPostDapperAsync();
         Task<IEnumerable<PostComentariosUsersResponse>> GetPostCommentUserAsync();
+
+        Task<IEnumerable<PostConComentariosMenoresResponse>> GetPostConComentariosMenoresAsync();
+
+        Task<IEnumerable<UsuarioActivoSinComentariosResponse>> GetUsersSinComentarioAsync();
+
+        Task<IEnumerable<ComentarioRecienteResponse>> GetComentariosMayor25();
+
+        Task<IEnumerable<PostSinComentariosResponse>> GetPostsSinComentarios();
+
+        Task<IEnumerable<UsuarioInteractivoResponse>> GetUsersInterActivos();
+        
+
+
         Task<Post> GetPostAsync(int id);
         Task InsertPostAsync(Post post);
         Task UpdatePostAsync(Post post);

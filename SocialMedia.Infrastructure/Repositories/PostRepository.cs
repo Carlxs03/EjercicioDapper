@@ -44,6 +44,20 @@ namespace SocialMedia.Infrastructure.Repositories
             }
         }
 
+        public async Task<IEnumerable<ComentarioRecienteResponse>> GetComentarioRecientePorMayor25Async()
+        {
+            try
+            {
+                var sql = PostQueries.ComentariosRecientesDeMayores;
+
+                return await _dapper.QueryAsync<ComentarioRecienteResponse>(sql);
+            }
+            catch (Exception err)
+            {
+                throw new Exception(err.Message);
+            }
+        }
+
         public async Task<IEnumerable<PostComentariosUsersResponse>> GetPostCommentUserAsync()
         {
             try
@@ -57,6 +71,64 @@ namespace SocialMedia.Infrastructure.Repositories
                 throw new Exception(err.Message);
             }
         }
+
+        public async Task<IEnumerable<PostConComentariosMenoresResponse>> GetPostConComentariosMenoresAsync()
+        {
+            try
+            {
+                var sql = PostQueries.PostsConComentariosDeMenores;
+
+                return await _dapper.QueryAsync<PostConComentariosMenoresResponse>(sql);
+            }
+            catch (Exception err)
+            {
+                throw new Exception(err.Message);
+            }
+        }
+
+        public async Task<IEnumerable<PostSinComentariosResponse>> GetPostsSinComentariosAsync()
+        {
+            try
+            {
+                var sql = PostQueries.PostsSinComentariosActivos;
+
+                return await _dapper.QueryAsync<PostSinComentariosResponse>(sql);
+            }
+            catch (Exception err)
+            {
+                throw new Exception(err.Message);
+            }
+        }
+
+        public async Task<IEnumerable<UsuarioInteractivoResponse>> GetUsersInterActivosAsync()
+        {
+            try
+            {
+                var sql = PostQueries.UsuariosConComentariosADiversosAutores;
+
+                return await _dapper.QueryAsync<UsuarioInteractivoResponse>(sql);
+            }
+            catch (Exception err)
+            {
+                throw new Exception(err.Message);
+            }
+        }
+
+        public async Task<IEnumerable<UsuarioActivoSinComentariosResponse>> GetUsersSinComentariosAsync()
+        {
+            try
+            {
+                var sql = PostQueries.UsuariosActivosSinComentarios;
+
+                return await _dapper.QueryAsync<UsuarioActivoSinComentariosResponse>(sql);
+            }
+            catch (Exception err)
+            {
+                throw new Exception(err.Message);
+            }
+        }
+
+
 
         //public async Task<Post> GetPostAsync(int id)
         //{

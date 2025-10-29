@@ -145,6 +145,56 @@ namespace SocialMedia.Api.Controllers
             return Ok(response);
         }
 
+        [HttpGet("dto/Tarea1")]
+        public async Task<IActionResult> GetPostsConComentariosDeMenores()
+        {
+            var posts = await _postService.GetPostConComentariosMenoresAsync();
+
+            var response = new ApiResponse<IEnumerable<PostConComentariosMenoresResponse>>(posts);
+
+            return Ok(response);
+        }
+
+        [HttpGet("dto/Tarea2")]
+        public async Task<IActionResult> GetUsersSinComentarios()
+        {
+            var users = await _postService.GetUsersSinComentarioAsync();
+
+            var response = new ApiResponse<IEnumerable<UsuarioActivoSinComentariosResponse>>(users);
+
+            return Ok(response);
+        }
+
+        [HttpGet("dto/Tarea3")]
+        public async Task<IActionResult> GetComentarioRecientePorMayor25()
+        {
+            var coments = await _postService.GetComentariosMayor25();
+
+            var response = new ApiResponse<IEnumerable<ComentarioRecienteResponse>>(coments);
+
+            return Ok(response);
+        }
+
+        [HttpGet("dto/Tarea4")]
+        public async Task<IActionResult> GetPostsVacios()
+        {
+            var posts = await _postService.GetPostsSinComentarios();
+
+            var response = new ApiResponse<IEnumerable<PostSinComentariosResponse>>(posts);
+
+            return Ok(response);
+        }
+
+        [HttpGet("dto/Tarea5")]
+        public async Task<IActionResult> GetUsersInterActivos()
+        {
+            var users = await _postService.GetUsersInterActivos();
+
+            var response = new ApiResponse<IEnumerable<UsuarioInteractivoResponse>>(users);
+
+            return Ok(response);
+        }
+
         [HttpGet("dto/dapper")]
         public async Task<IActionResult> GetPostsDtoMapper()
         {
